@@ -1,15 +1,13 @@
-package dev.naikvarun.food.order.domain;
+package dev.naikvarun.food.order.domain.entity;
 
 import dev.naikvarun.food.common.domain.IdUtils;
 import dev.naikvarun.food.common.domain.entity.AggregateRoot;
 import dev.naikvarun.food.common.domain.valueobject.*;
-import dev.naikvarun.food.order.exceptions.OrderDomainException;
-import dev.naikvarun.food.order.valueobject.StreetAddress;
-import dev.naikvarun.food.order.valueobject.TrackingId;
+import dev.naikvarun.food.order.domain.exceptions.OrderDomainException;
+import dev.naikvarun.food.order.domain.valueobject.StreetAddress;
+import dev.naikvarun.food.order.domain.valueobject.TrackingId;
 import org.javamoney.moneta.Money;
-import org.javamoney.moneta.spi.MoneyUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Order extends AggregateRoot<OrderId> {

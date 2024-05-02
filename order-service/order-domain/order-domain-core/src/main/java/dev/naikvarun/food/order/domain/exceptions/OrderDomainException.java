@@ -1,4 +1,4 @@
-package dev.naikvarun.food.order.exceptions;
+package dev.naikvarun.food.order.domain.exceptions;
 
 import dev.naikvarun.food.common.domain.exception.DomainException;
 

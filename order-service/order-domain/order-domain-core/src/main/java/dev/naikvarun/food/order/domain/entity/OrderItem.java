@@ -1,6 +1,5 @@
-package dev.naikvarun.food.order.domain;
+package dev.naikvarun.food.order.domain.entity;
 
-import dev.naikvarun.food.common.domain.IdUtils;
 import dev.naikvarun.food.common.domain.entity.BaseEntity;
 import dev.naikvarun.food.common.domain.valueobject.MoneyBuilder;
 import dev.naikvarun.food.common.domain.valueobject.OrderId;

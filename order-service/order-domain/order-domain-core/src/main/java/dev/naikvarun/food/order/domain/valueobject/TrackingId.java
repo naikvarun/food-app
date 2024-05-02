@@ -1,4 +1,4 @@
-package dev.naikvarun.food.order.valueobject;
+package dev.naikvarun.food.order.domain.valueobject;
 
 import dev.naikvarun.food.common.domain.valueobject.BaseId;
 

@@ -1,4 +1,4 @@
-package dev.naikvarun.food.order.valueobject;
+package dev.naikvarun.food.order.domain.valueobject;
 
 import java.util.Objects;
 
@@ -12,7 +12,7 @@ public class StreetAddress {
     public StreetAddress(String id, String street, String city, String state, String zip) {
         this.id = id;
         this.street = street;
-        this.city = city    ;
+        this.city = city;
         this.state = state;
         this.zip = zip;
     }
