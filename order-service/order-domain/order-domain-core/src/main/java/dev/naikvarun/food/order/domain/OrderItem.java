@@ -2,6 +2,7 @@ package dev.naikvarun.food.order.domain;
 
 import dev.naikvarun.food.common.domain.IdUtils;
 import dev.naikvarun.food.common.domain.entity.BaseEntity;
+import dev.naikvarun.food.common.domain.valueobject.MoneyBuilder;
 import dev.naikvarun.food.common.domain.valueobject.OrderId;
 import org.javamoney.moneta.Money;
 
@@ -42,9 +43,15 @@ public class OrderItem extends BaseEntity<OrderItemId> {
         return subTotal;
     }
 
-    public void initialize(OrderId orderId) {
+    public void initialize(OrderItemId orderItemId, OrderId orderId) {
         this.orderId = orderId;
-        this.setId(new OrderItemId(IdUtils.getEntityId("ITM")));
+        this.setId(orderItemId);
+    }
+
+    public boolean isPriceValid() {
+        return this.price.isGreaterThan(MoneyBuilder.from(0))
+                && this.price.isEqualTo(this.product.getPrice())
+                && this.price.multiply(quantity).isEqualTo(this.getSubTotal());
     }
 
     public static final class Builder {
