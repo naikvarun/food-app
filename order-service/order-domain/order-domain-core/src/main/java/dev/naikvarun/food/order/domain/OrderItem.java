@@ -1,5 +1,6 @@
 package dev.naikvarun.food.order.domain;
 
+import dev.naikvarun.food.common.domain.IdUtils;
 import dev.naikvarun.food.common.domain.entity.BaseEntity;
 import dev.naikvarun.food.common.domain.valueobject.OrderId;
 import org.javamoney.moneta.Money;
@@ -39,6 +40,11 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 
     public Money getSubTotal() {
         return subTotal;
+    }
+
+    public void initialize(OrderId orderId) {
+        this.orderId = orderId;
+        this.setId(new OrderItemId(IdUtils.getEntityId("ITM")));
     }
 
     public static final class Builder {

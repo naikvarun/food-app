@@ -1,5 +1,6 @@
 package dev.naikvarun.food.order.domain;
 
+import dev.naikvarun.food.common.domain.IdUtils;
 import dev.naikvarun.food.common.domain.entity.AggregateRoot;
 import dev.naikvarun.food.common.domain.valueobject.CustomerId;
 import dev.naikvarun.food.common.domain.valueobject.OrderId;
@@ -33,6 +34,17 @@ public class Order extends AggregateRoot<OrderId> {
         failureMessages = builder.failureMessages;
     }
 
+
+    public void initialize() {
+        setId(new OrderId(IdUtils.getOrderId()));
+        this.trackingId = new TrackingId(IdUtils.getEntityId("TRK"));
+        this.status  = OrderStatus.PENDING;
+        initializeOrderItems();
+    }
+
+    private void initializeOrderItems() {
+        this.items.stream().forEach(orderItem -> orderItem.initialize(this.getId()));
+    }
 
     public CustomerId getCustomerId() {
         return customerId;
