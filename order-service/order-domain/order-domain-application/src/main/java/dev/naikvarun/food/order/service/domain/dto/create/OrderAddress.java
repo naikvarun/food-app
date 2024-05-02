@@ -1,0 +1,18 @@
+package dev.naikvarun.food.order.service.domain.dto.create;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+
+@Getter
+@Builder
+@AllArgsConstructor
+public class OrderAddress {
+    @NotNull
+    private final String street;
+    @NotNull
+    private final String city;
+    @NotNull
+    private final String zip;
+}
